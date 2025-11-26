@@ -20,12 +20,12 @@ class UserRegistrationForm(forms.ModelForm):
         return cd['password2']
     
 
-    class UserEditForm(forms.ModelForm):
-        class Meta:
-            model = User
-            fields = ['email']
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['email']
 
-    class ProfileEditForm(forms.ModelForm):
-        class Meta: 
-            model = UserProfile
-            fields = ['phone', 'adress', 'city']
+class ProfileEditForm(forms.ModelForm):
+    class Meta: 
+        model = UserProfile
+        fields = ['phone', 'address', 'city']
