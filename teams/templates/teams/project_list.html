@@ -1,8 +1,17 @@
+<h1>== TO JEST LISTA PROJEKTÓW ==</h1>
+
+
+
 <h2>Moje Projekty</h2>
-<a href="{% url 'add_project' %}">Dodaj projekt</a>
+<a href="{% url 'add_project' %}">+ Dodaj projekt</a>
 <ul>
   {% for project in projects %}
-    <li>{{ project.name }} – {{ project.status }}</li>
+    <li>
+  <strong>{{ project.name }}</strong> – {{ project.status }}
+  [<a href="{% url 'edit_project' project.id %}">Edytuj</a>] 
+  [<a href="{% url 'delete_project' project.id %}">Usuń</a>]
+    </li>
+
   {% empty %}
     <li>Brak projektów</li>
   {% endfor %}

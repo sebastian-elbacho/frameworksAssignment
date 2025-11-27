@@ -85,3 +85,27 @@ def project_list(request):
 
 
 
+@login_required
+def edit_project(request, project_id):
+    project = Project.objects.get(id=project_id, owner=request.user)
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, instance=project)
+        if form.is_valid():
+            form.save()
+            return redirect('project_list')
+    else:
+        form = ProjectForm(instance=project)
+    return render(request, 'teams/edit_project.html', {'form': form})
+
+
+@login_required
+def delete_project(request, project_id):
+    project = Project.objects.get(id=project_id, owner=request.user)
+    if request.method == 'POST':
+        project.delete()
+        return redirect('project_list')
+    return render(request, 'teams/delete_project.html', {'project': project})
+
+
+
+

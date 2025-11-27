@@ -1,0 +1,7 @@
+<h2>Czy na pewno chcesz usunąć projekt "{{ project.name }}"?</h2>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Tak, usuń</button>
+  <a href="{% url 'project_list' %}">Anuluj</a>
+</form>
