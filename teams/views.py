@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .forms import UserEditForm, ProfileEditForm
 from django.contrib.auth.decorators import login_required
-
+from .forms import ProjectForm
+from .models import Project
 
 
 # Create your views here.
@@ -60,5 +61,27 @@ def edit_profile(request):
         'user_form': user_form,
         'profile_form': profile_form
     })
+
+
+@login_required
+def add_project(request):
+    if request.method == 'POST':
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.owner = request.user  # przypisz aktualnie zalogowanego użytkownika
+            project.save()
+            return redirect('project_list')
+    else:
+        form = ProjectForm()
+    return render(request, 'teams/add_project.html', {'form': form})
+
+
+@login_required
+def project_list(request):
+    projects = Project.objects.filter(owner=request.user)
+    return render(request, 'teams/project_list.html', {'projects': projects})
+
+
 
 
