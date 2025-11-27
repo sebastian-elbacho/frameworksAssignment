@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from .models import UserProfile
+from .models import Project
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(label='Hasło', widget=forms.PasswordInput)
@@ -33,7 +34,7 @@ class ProfileEditForm(forms.ModelForm):
 
 
 
-from .models import Project
+
 
 class ProjectForm(forms.ModelForm):
     class Meta:

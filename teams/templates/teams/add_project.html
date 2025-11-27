@@ -1,6 +1,27 @@
-<h2>Dodaj projekt</h2>
+<!-- <h2>Dodaj projekt</h2>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
+  <button type="submit">Zapisz</button>
+</form> -->
+
+
+
+<h2>Dodaj projekt</h2>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if form.errors %}
+    <div class="errors">
+      <ul>
+        {% for field in form %}
+          {% for error in field.errors %}
+            <li><strong>{{ field.label }}</strong>: {{ error }}</li>
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
   <button type="submit">Zapisz</button>
 </form>
