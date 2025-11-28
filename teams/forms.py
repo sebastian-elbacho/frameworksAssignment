@@ -28,8 +28,8 @@ class UserEditForm(forms.ModelForm):
 
 class ProfileEditForm(forms.ModelForm):
     class Meta: 
-        model = UserProfile
-        fields = ['phone', 'address', 'city']
+     model = UserProfile
+     fields = ['phone', 'address', 'city']
 
 
 
@@ -37,7 +37,10 @@ class ProfileEditForm(forms.ModelForm):
 
 
 class ProjectForm(forms.ModelForm):
+    start_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    end_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+                               
     class Meta:
-        model = Project
-        fields = ['name', 'description', 'start_date', 'end_date', 'stakeholders', 'status']
+      model = Project
+      fields = ['name', 'description', 'start_date', 'end_date', 'stakeholders', 'status']
 
