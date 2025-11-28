@@ -6,15 +6,15 @@
 
 
 
-<h2>Edytuj projekt</h2>
 
+
+<h2>Wyślij wiadomość</h2>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Zapisz zmiany</button>
+  <button type="submit">Wyślij</button>
 </form>
-
-<p><a href="{% url 'project_list' %}">← Wróć do listy projektów</a></p>
 
 
 {% endblock %}
+

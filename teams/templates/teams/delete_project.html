@@ -1,3 +1,12 @@
+{% extends 'teams/layout.html' %}
+{% block title %}Tu tytuł strony{% endblock %}
+{% block content %}
+
+
+
+
+
+
 <h2>Czy na pewno chcesz usunąć projekt "{{ project.name }}"?</h2>
 
 <form method="post">
@@ -5,3 +14,6 @@
   <button type="submit">Tak, usuń</button>
   <a href="{% url 'project_list' %}">Anuluj</a>
 </form>
+
+
+{% endblock %}

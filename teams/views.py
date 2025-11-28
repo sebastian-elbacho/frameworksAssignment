@@ -8,7 +8,8 @@ from .forms import UserEditForm, ProfileEditForm
 from django.contrib.auth.decorators import login_required
 from .forms import ProjectForm
 from .models import Project
-
+from .forms import MessageForm
+from .models import Message
 
 # Create your views here.
 
@@ -105,6 +106,31 @@ def delete_project(request, project_id):
         project.delete()
         return redirect('project_list')
     return render(request, 'teams/delete_project.html', {'project': project})
+
+
+
+@login_required
+def inbox(request):
+    messages = Message.objects.filter(recipient=request.user).order_by('-timestamp')
+    return render(request, 'teams/inbox.html', {'messages': messages})
+
+
+@login_required
+def send_message(request):
+    if request.method == 'POST':
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            message = form.save(commit=False)
+            message.sender = request.user
+            message.save()
+            return redirect('inbox')
+    else:
+        form = MessageForm()
+    return render(request, 'teams/send_message.html', {'form': form})
+
+
+
+
 
 
 

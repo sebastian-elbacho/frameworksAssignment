@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from .models import UserProfile
 from .models import Project
+from .models import Message 
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(label='Hasło', widget=forms.PasswordInput)
@@ -44,3 +45,13 @@ class ProjectForm(forms.ModelForm):
       model = Project
       fields = ['name', 'description', 'start_date', 'end_date', 'stakeholders', 'status']
 
+
+
+
+
+
+
+class MessageForm(forms.ModelForm):
+    class Meta:
+        model = Message
+        fields = ['recipient', 'subject', 'body']

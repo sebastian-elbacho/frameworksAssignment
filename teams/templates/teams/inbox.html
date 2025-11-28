@@ -1,0 +1,26 @@
+{% extends 'teams/layout.html' %}
+{% block title %}Tu tytuł strony{% endblock %}
+{% block content %}
+
+
+
+
+
+<h2>Skrzynka odbiorcza</h2>
+<a href="{% url 'send_message' %}">+ Napisz wiadomość</a>
+<ul>
+  {% for message in messages %}
+    <li>
+      <strong>Od:</strong> {{ message.sender }}<br>
+      <strong>Temat:</strong> {{ message.subject }}<br>
+      <strong>Treść:</strong> {{ message.body }}<br>
+      <em>{{ message.timestamp }}</em>
+    </li>
+  {% empty %}
+    <li>Brak wiadomości</li>
+  {% endfor %}
+</ul>
+
+
+{% endblock %}
+
