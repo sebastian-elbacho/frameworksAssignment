@@ -9,20 +9,20 @@
   <div class="col-md-6 col-lg-5">
 
     <div class="card shadow-lg p-4 border-0 rounded-4">
-      <h2 class="text-center mb-4">Zaloguj się</h2>
+      <h2 class="text-center mb-4">Login</h2>
 
       <form method="post" novalidate>
         {% csrf_token %}
         {{ form|crispy }}
 
         <button type="submit" class="btn btn-primary w-100 mt-3">
-          Zaloguj się
+          Login
         </button>
       </form>
 
       <p class="text-center mt-3">
-        Nie masz konta?
-        <a href="{% url 'register' %}" class="text-decoration-none">Zarejestruj się</a>.
+        you don't have an account?
+        <a href="{% url 'register' %}" class="text-decoration-none">Register</a>.
       </p>
     </div>
 

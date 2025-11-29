@@ -1,6 +1,6 @@
 {% extends 'teams/layout.html' %}
 
-{% block title %}Strona główna{% endblock %}
+{% block title %}Main page{% endblock %}
 
 {% block content %}
 
@@ -8,57 +8,56 @@
 
     <!-- Sekcja nagłówka -->
     <h1 class="display-4 fw-bold mb-3">
-        👋 Witaj w <span class="text-primary">FrameworkApp</span>
+        👋 Welcom to  <span class="text-primary">FrameworkApp</span>
     </h1>
     <p class="lead text-muted mb-4">
-        Twoje centrum zarządzania projektami, wiadomościami i profilem.
-        Zaprojektowane, aby ułatwić pracę i organizację każdego dnia.
+       Your central hub for managing your projects, messages, and profile. Designed to simplify your work and daily organization.
     </p>
 
     <!-- Przyciski CTA -->
     {% if user.is_authenticated %}
         <div class="d-flex justify-content-center gap-3 mt-4">
             <a href="{% url 'project_list' %}" class="btn btn-primary btn-lg">
-                📁 Przejdź do projektów
+                📁 Go to projects
             </a>
             <a href="{% url 'inbox' %}" class="btn btn-outline-primary btn-lg">
-                ✉️ Sprawdź wiadomości
+                ✉️ Check the news
             </a>
         </div>
     {% else %}
         <div class="d-flex justify-content-center gap-3 mt-4">
             <a href="{% url 'login' %}" class="btn btn-primary btn-lg">
-                🔐 Zaloguj się
+                🔐 Login
             </a>
             <a href="{% url 'register' %}" class="btn btn-outline-primary btn-lg">
-                📝 Zarejestruj się
+                📝 Register
             </a>
         </div>
     {% endif %}
 
     <!-- Sekcja informacji -->
     <div class="mt-5">
-        <h3 class="fw-bold">Co możesz zrobić?</h3>
+        <h3 class="fw-bold">What can you do?</h3>
         <div class="row justify-content-center mt-4">
 
             <div class="col-md-4 mb-3">
                 <div class="card shadow-sm p-3 border-0 rounded-4 h-100">
-                    <h5 class="fw-bold">🗂️ Zarządzanie projektami</h5>
-                    <p class="text-muted">Dodawaj, edytuj i usuwaj projekty. Pilnuj statusów, terminów i postępów.</p>
+                    <h5 class="fw-bold">🗂️ Project management</h5>
+                    <p class="text-muted">Add, edit, and delete projects. Keep track of statuses, deadlines, and progress.</p>
                 </div>
             </div>
 
             <div class="col-md-4 mb-3">
                 <div class="card shadow-sm p-3 border-0 rounded-4 h-100">
-                    <h5 class="fw-bold">✉️ Wysyłanie wiadomości</h5>
-                    <p class="text-muted">Komunikuj się z innymi użytkownikami. Przeglądaj swoje wiadomości w prosty sposób.</p>
+                    <h5 class="fw-bold">✉️ Send Messages</h5>
+                    <p class="text-muted">Contact other users.</p>
                 </div>
             </div>
 
             <div class="col-md-4 mb-3">
                 <div class="card shadow-sm p-3 border-0 rounded-4 h-100">
-                    <h5 class="fw-bold">👤 Edycja profilu</h5>
-                    <p class="text-muted">Aktualizuj swoje dane kontaktowe i informacje o sobie w jednym miejscu.</p>
+                    <h5 class="fw-bold">👤 Send Message</h5>
+                    <p class="text-muted">Update your contact details and information about yourself in one place.</p>
                 </div>
             </div>
 

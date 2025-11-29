@@ -1,6 +1,6 @@
 {% extends 'teams/layout.html' %}
 
-{% block title %}Twój profil{% endblock %}
+{% block title %}Your profile{% endblock %}
 
 {% block content %}
 
@@ -8,19 +8,19 @@
   <div class="col-md-6 col-lg-5">
 
     <div class="card shadow-lg p-4 border-0 rounded-4">
-      <h2 class="mb-3 text-center">Twój profil</h2>
+      <h2 class="mb-3 text-center">Your Profile</h2>
 
-      <p><strong>Nazwa użytkownika:</strong> {{ user.username }}</p>
+      <p><strong>User Name:</strong> {{ user.username }}</p>
       <p><strong>Email:</strong> {{ user.email }}</p>
 
       {% if user.userprofile %}
-        <p><strong>Telefon:</strong> {{ user.userprofile.phone }}</p>
-        <p><strong>Adres:</strong> {{ user.userprofile.address }}</p>
-        <p><strong>Miasto:</strong> {{ user.userprofile.city }}</p>
+        <p><strong>Phone:</strong> {{ user.userprofile.phone }}</p>
+        <p><strong>Adress:</strong> {{ user.userprofile.address }}</p>
+        <p><strong>City:</strong> {{ user.userprofile.city }}</p>
       {% endif %}
 
       <div class="d-grid mt-4">
-        <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edytuj profil</a>
+        <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edit profile</a>
       </div>
 
     </div>

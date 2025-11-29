@@ -1,7 +1,7 @@
 {% extends 'teams/layout.html' %}
 {% load crispy_forms_tags %}
 
-{% block title %}Rejestracja{% endblock %}
+{% block title %}Registration{% endblock %}
 
 {% block content %}
 
@@ -9,19 +9,19 @@
   <div class="col-md-6 col-lg-5">
 
     <div class="card shadow-lg p-4 border-0 rounded-4">
-      <h2 class="text-center mb-4">Utwórz konto</h2>
+      <h2 class="text-center mb-4">create an account</h2>
 
       <form method="post" novalidate>
         {% csrf_token %}
         {{ form|crispy }}
 
         <button type="submit" class="btn btn-primary w-100 mt-3">
-          Zarejestruj się
+          Registration
         </button>
       </form>
 
       <p class="text-center mt-3">
-        Masz już konto?
+        you already have an account?
         <a href="{% url 'login' %}" class="text-decoration-none">Zaloguj się</a>.
       </p>
     </div>
