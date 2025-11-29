@@ -20,16 +20,21 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from teams import views as team_views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # główna aplikacja
+    # główna aplikacja (WSZYSTKIE URLe z teams)
     path('', include('teams.urls')),  
 
     # login/logout
     path('login/', auth_views.LoginView.as_view(template_name='teams/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
-
-    # strona startowa
-    path('', team_views.home, name='home'),
 ]
+
+# nazwa strony głównej
+from django.views.generic import RedirectView
+urlpatterns += [
+    path('', RedirectView.as_view(pattern_name='home', permanent=False)),
+]
+
