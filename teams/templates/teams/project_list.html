@@ -1,31 +1,42 @@
 {% extends 'teams/layout.html' %}
-{% block title %}Tu tytuł strony{% endblock %}
+
+{% block title %}Projekty{% endblock %}
+
 {% block content %}
 
+<h2 class="mb-4">Twoje projekty</h2>
 
+<a href="{% url 'add_project' %}" class="btn btn-success mb-3">➕ Dodaj nowy projekt</a>
 
+<table class="table table-hover table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>Nazwa</th>
+      <th>Status</th>
+      <th>Start</th>
+      <th>Koniec</th>
+      <th>Akcje</th>
+    </tr>
+  </thead>
 
-
-
-
-
-
-
-<h2>Moje Projekty</h2>
-<a href="{% url 'add_project' %}">+ Dodaj projekt</a>
-<ul>
-  {% for project in projects %}
-    <li>
-  <strong>{{ project.name }}</strong> – {{ project.status }}
-  [<a href="{% url 'edit_project' project.id %}">Edytuj</a>] 
-  [<a href="{% url 'delete_project' project.id %}">Usuń</a>]
-    </li>
-
-  {% empty %}
-    <li>Brak projektów</li>
-  {% endfor %}
-</ul>
-
+  <tbody>
+    {% for project in projects %}
+      <tr>
+        <td>{{ project.name }}</td>
+        <td>{{ project.status }}</td>
+        <td>{{ project.start_date }}</td>
+        <td>{{ project.end_date }}</td>
+        <td>
+          <a href="{% url 'edit_project' project.id %}" class="btn btn-sm btn-primary">Edytuj</a>
+          <a href="{% url 'delete_project' project.id %}" class="btn btn-sm btn-danger">Usuń</a>
+        </td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="5" class="text-center text-muted">Brak projektów.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
 {% endblock %}
-

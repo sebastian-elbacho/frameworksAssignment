@@ -1,21 +1,26 @@
 {% extends 'teams/layout.html' %}
-{% block title %}Tu tytuł strony{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block title %}Edycja profilu{% endblock %}
+
 {% block content %}
 
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-5">
+    <div class="card shadow-lg p-4 border-0 rounded-4">
 
+      <h2 class="text-center mb-4">Edytuj profil</h2>
 
+      <form method="post" novalidate>
+        {% csrf_token %}
+        {{ user_form|crispy }}
+        {{ profile_form|crispy }}
 
+        <button type="submit" class="btn btn-primary w-100 mt-3">Zapisz zmiany</button>
+      </form>
 
-<h2>Edytuj Profil</h2>
-
-<form method="post">
-  {% csrf_token %}
-  <h3>Dane użytkownika</h3>
-  {{ user_form.as_p }}
-  <h3>Dane kontaktowe</h3>
-  {{ profile_form.as_p }}
-  <button type="submit">Zapisz zmiany</button>
-</form>
-
+    </div>
+  </div>
+</div>
 
 {% endblock %}

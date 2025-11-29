@@ -1,16 +1,31 @@
 {% extends 'teams/layout.html' %}
-{% block title %}Tu tytuł strony{% endblock %}
+
+{% block title %}Twój profil{% endblock %}
+
 {% block content %}
 
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-5">
 
+    <div class="card shadow-lg p-4 border-0 rounded-4">
+      <h2 class="mb-3 text-center">Twój profil</h2>
 
+      <p><strong>Nazwa użytkownika:</strong> {{ user.username }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
 
+      {% if user.userprofile %}
+        <p><strong>Telefon:</strong> {{ user.userprofile.phone }}</p>
+        <p><strong>Adres:</strong> {{ user.userprofile.address }}</p>
+        <p><strong>Miasto:</strong> {{ user.userprofile.city }}</p>
+      {% endif %}
 
-<h2>Witaj {{ request.user.username}} !</h2>
-<p>To Twoj panel uzytkownika.</p>
-<a href="{% url 'logout' %}">Wyloguj sie</a>
-<p><a href="{% url 'edit_profile' %}">Edytuj profil</a></p>
+      <div class="d-grid mt-4">
+        <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edytuj profil</a>
+      </div>
 
+    </div>
 
+  </div>
+</div>
 
 {% endblock %}

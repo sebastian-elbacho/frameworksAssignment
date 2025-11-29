@@ -1,21 +1,156 @@
+/* ========================================= */
+/*      FRAMEWORKAPP — CUSTOM UI DESIGN      */
+/* ========================================= */
+
+/* Global font smoothing */
 body {
-  background-color: black;
-  color: white;
- 
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa !important;
+    color: #333;
 }
 
+/* ------------------------------ */
+/*  NAVBAR                        */
+/* ------------------------------ */
 
-
+.navbar {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    font-size: 1.05rem;
+}
 
 .navbar-brand {
-  font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
+
+.nav-link {
+    transition: 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #0d6efd !important;
+}
+
+/* ------------------------------ */
+/*  CARDS                         */
+/* ------------------------------ */
 
 .card {
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-radius: 12px !important;
 }
 
-.btn {
-  border-radius: 10px;
+.card h2, .card h3 {
+    font-weight: 700;
+}
+
+/* Subtle hover effect for cards */
+.card:hover {
+    transform: translateY(-2px);
+    transition: 0.2s ease-in-out;
+}
+
+/* ------------------------------ */
+/*  BUTTONS                       */
+/* ------------------------------ */
+
+.btn-primary,
+.btn-success,
+.btn-danger,
+.btn-outline-primary {
+    border-radius: 8px !important;
+    padding: 0.6rem 1rem;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* ------------------------------ */
+/*  TABLES                        */
+/* ------------------------------ */
+
+table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table-striped > tbody > tr:nth-child(odd) {
+    background-color: #f1f4f8;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e2e6ea;
+}
+
+/* ------------------------------ */
+/*  HEADERS / TITLES              */
+/* ------------------------------ */
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+}
+
+.display-4 {
+    font-weight: 800;
+}
+
+/* ------------------------------ */
+/*  FOOTER                        */
+/* ------------------------------ */
+
+footer {
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* ------------------------------ */
+/*  SPACING UTILITIES             */
+/* ------------------------------ */
+
+.mt-6 {
+    margin-top: 4rem !important;
+}
+
+.mb-6 {
+    margin-bottom: 4rem !important;
+}
+
+/* ------------------------------ */
+/*  FORMS                         */
+/* ------------------------------ */
+
+input, textarea, select {
+    border-radius: 8px !important;
+}
+
+/* Error messages styling */
+.errorlist {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+/* Hover effect for form cards */
+.card:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* ------------------------------ */
+/* Smooth animations (subtle)     */
+/* ------------------------------ */
+
+* {
+    transition: 0.15s ease-in-out;
 }
