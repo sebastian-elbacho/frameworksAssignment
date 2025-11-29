@@ -4,6 +4,6 @@ psycopg2-binary==2.9.11
 sqlparse==0.5.3
 django-crispy-forms
 crispy-bootstrap5
-
+dj-database-url
 # required by Render
 gunicorn

@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+import os
+
 
 
 
@@ -25,12 +28,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-za0$+mhlwk6o)lr6b@+raabs)8iu0@$7s3rpmg6u9ya^7k%1$x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.onrender.com'
+]
+
 
 ALLOWED_HOSTS = [
     
     'localhost',
     '.onrender.com',
+    '127.0.0.1'
 
 
 ]
@@ -88,14 +97,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'framework_db',
-        'USER': 'postgres',
-        'PASSWORD': 'tyju',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True
+    )
+   
 }
 
 
