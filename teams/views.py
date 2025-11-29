@@ -10,8 +10,11 @@ from .forms import ProjectForm
 from .models import Project
 from .forms import MessageForm
 from .models import Message
+from django.contrib import messages
+
 
 # Create your views here.
+from django.contrib import messages
 
 def register(request):
     if request.method == 'POST':
@@ -20,16 +23,24 @@ def register(request):
             new_user = form.save(commit=False)
             new_user.set_password(form.cleaned_data['password'])
             new_user.save()
+
             UserProfile.objects.create(
                 user=new_user,
                 phone=form.cleaned_data['phone'],
                 address=form.cleaned_data['address'],
                 city=form.cleaned_data['city']
             )
-            return redirect('login')  # tymczasowo – jeszcze nie mamy strony logowania
+
+            # ⭐ TOAST NOTIFICATION HERE:
+            messages.success(request, "Account created successfully. You can now log in.")
+
+            return redirect('login')
     else:
         form = UserRegistrationForm()
+
     return render(request, 'teams/register.html', {'form': form})
+
+
 
 
 # def home(request):
