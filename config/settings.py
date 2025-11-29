@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-za0$+mhlwk6o)lr6b@+raabs)8iu0@$7s3rpmg6u9ya^7k%1$x
 DEBUG = False
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://frameworksassignment-4.onrender.com'
+    
 ]
 
 
