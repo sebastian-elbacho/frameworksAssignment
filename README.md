@@ -1,4 +1,4 @@
-Framework Assignment
+## Framework Assignment
 FrameworkApp – Django Project Management & Messaging App
 
 FrameworkApp is a web application built with **Django** and **PostgreSQL** that allows users to:
@@ -96,6 +96,65 @@ manage.py         # Django management script
 requirements.txt  # Python dependencies
 Procfile          # Process definition for gunicorn (deployment)
 README.md         # This file
+```
+
+## Local Setup - How to Run the App
+
+1. Clone the repository
+git clone <your_repo_url>
+cd frameworksAssignment
+
+2. Create and activate a virtual environment (optional but recommended).
+python3 -m venv venv        #macOS
+source venv/bin/activate  # macOS / Linux
+venv\Scripts\activate   # Windows
+
+3. Install dependencies
+pip install -r requirements.txt
+
+4. Configure PostgreSQL
+Make sure you have a PostgreSQL database created, e.g.:
+Database name: framework_db
+User: postgres
+Password: tyju
+Host: localhost
+Port: 5432
+
+In config/settings.py:
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "framework_db",
+        "USER": "postgres",
+        "PASSWORD": "tyju",
+        "HOST": "localhost",
+        "PORT": "5432",
+    }
+}
+
+5. Apply migrations
+python manage.py makemigrations
+python manage.py migrate
+
+6. Create a superuser (optional, for admin access)
+python3 manage.py createsuperuser
+
+7. Collect static files (for production / deployment)
+python3 manage.py collectstatic
+
+8. Run the development server
+python3 mange.py runserver 
+
+## visit: http://127.0.0.1:8000/
 
 
-## Local Setup – How to Run the App
+
+
+
+
+
+
+
+
+
