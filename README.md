@@ -44,7 +44,7 @@ This project was developed as part of a university assignment to demonstrate ful
 - Admins can see all projects in the system.
 - Project fields include basic information such as name, dates and status (extendable).
 
-### ✉️ Messaging (Inbox)
+### Messaging (Inbox)
 
 - Authenticated users can send messages to other users.
 - Each user has an inbox that shows messages received, ordered from newest to oldest.
