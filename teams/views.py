@@ -32,9 +32,11 @@ def register(request):
     return render(request, 'teams/register.html', {'form': form})
 
 
-def home(request):
-    return HttpResponse("<h1>Witaj na stronie glownej aplikacji</h1><p><a href='/login/'>Zaloguj sie</a> lub <a href='/teams/register/'>Zarejestruj</a></p>")
+# def home(request):
+#     return HttpResponse("<h1>Witaj na stronie glownej aplikacji</h1><p><a href='/login/'>Zaloguj sie</a> lub <a href='/teams/register/'>Zarejestruj</a></p>")
 
+def home(request):
+    return render(request, 'teams/home.html')
 
 
 

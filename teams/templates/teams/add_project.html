@@ -1,37 +1,17 @@
 {% extends 'teams/layout.html' %}
-{% block title %}Tu tytuł strony{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block title %}Dodaj Projekt{% endblock %}
+
 {% block content %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2>Dodaj projekt</h2>
-
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if form.errors %}
-    <div class="errors">
-      <ul>
-        {% for field in form %}
-          {% for error in field.errors %}
-            <li><strong>{{ field.label }}</strong>: {{ error }}</li>
-          {% endfor %}
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
-  <button type="submit">Zapisz</button>
-</form>
-
+<div class="container mt-5">
+  <div class="card shadow p-4">
+    <h2 class="mb-4">Dodaj projekt</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-primary mt-3">Zapisz</button>
+    </form>
+  </div>
+</div>
 {% endblock %}

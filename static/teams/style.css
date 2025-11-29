@@ -1,7 +1,11 @@
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: red;
+  background-color: black;
+  color: white;
+ 
 }
+
+
+
 
 .navbar-brand {
   font-weight: 600;
