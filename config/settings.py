@@ -10,9 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
-from pathlib import Path
-import dj_database_url
 import os
+import dj_database_url
+from pathlib import Path
+
+
 
 
 
@@ -31,18 +33,13 @@ SECRET_KEY = 'django-insecure-za0$+mhlwk6o)lr6b@+raabs)8iu0@$7s3rpmg6u9ya^7k%1$x
 DEBUG = False
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://*.onrender.com'
+    'https://frameworksassignment-4.onrender.com'
 ]
 
 
-ALLOWED_HOSTS = [
-    
-    'localhost',
-    '.onrender.com',
-    '127.0.0.1'
 
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
-]
 
 
 
@@ -96,14 +93,25 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get("DATABASE_URL"),
-        conn_max_age=600,
-        ssl_require=True
-    )
-   
-}
+# DATABASES
+if os.environ.get("DATABASE_URL"):
+    # Production on Render – PostgreSQL
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.environ["DATABASE_URL"],
+            conn_max_age=600,
+            ssl_require=True
+        )
+    }
+else:
+    # Local development – SQLite
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
 
 
 # Password validation
